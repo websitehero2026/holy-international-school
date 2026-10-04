@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Holy International School - Kashinagar, Raidighi</title>
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
+    
+    <!-- Google Fonts CDNs -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <!-- FontAwesome Icons CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -19,24 +22,26 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            50: 'var(--color-brand-50, #f0f4fe)',
-                            100: 'var(--color-brand-100, #dbe4fe)',
-                            200: 'var(--color-brand-200, #bfcefe)',
-                            500: 'var(--color-brand-500, #3b82f6)',
-                            600: 'var(--color-brand-600, #1e40af)',
-                            700: 'var(--color-brand-700, #1e3a8a)',
-                            800: 'var(--color-brand-800, #172554)',
-                            900: 'var(--color-brand-900, #0f172a)',
+                        primary: {
+                            50: 'var(--color-primary-50, #f0f4fe)',
+                            100: 'var(--color-primary-100, #dbe4fe)',
+                            200: 'var(--color-primary-200, #bfcefe)',
+                            500: 'var(--color-primary-500, #2563eb)',
+                            600: 'var(--color-primary-600, #1d4ed8)',
+                            700: 'var(--color-primary-700, #1e40af)',
+                            800: 'var(--color-primary-800, #1e3a8a)',
+                            900: 'var(--color-primary-900, #0f172a)',
                         },
                         accent: {
+                            400: 'var(--color-accent-400, #fbbf24)',
                             500: 'var(--color-accent-500, #f59e0b)',
                             600: 'var(--color-accent-600, #d97706)',
                         }
                     },
                     fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        serif: ['"Playfair Display"', 'serif'],
+                        custom: ['var(--font-heading)', 'sans-serif'],
+                        body: ['var(--font-body)', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif']
                     }
                 }
             }
@@ -44,213 +49,370 @@
     </script>
 
     <style>
+        /* Theme Preset 1: Royal Gold & Navy (Default) */
         :root {
-            /* Theme Default: Royal Navy & Gold */
-            --color-brand-50: #eff6ff;
-            --color-brand-100: #dbeafe;
-            --color-brand-200: #bfdbfe;
-            --color-brand-500: #2563eb;
-            --color-brand-600: #1d4ed8;
-            --color-brand-700: #1e40af;
-            --color-brand-800: #1e3a8a;
-            --color-brand-900: #0f172a;
+            --color-primary-50: #eff6ff;
+            --color-primary-100: #dbeafe;
+            --color-primary-200: #bfdbfe;
+            --color-primary-500: #2563eb;
+            --color-primary-600: #1d4ed8;
+            --color-primary-700: #1e40af;
+            --color-primary-800: #1e3a8a;
+            --color-primary-900: #0f172a;
+            --color-accent-400: #fbbf24;
+            --color-accent-500: #f59e0b;
+            --color-accent-600: #d97706;
+            --font-heading: 'Plus Jakarta Sans';
+            --font-body: 'Plus Jakarta Sans';
+        }
+
+        /* Theme Preset 2: Emerald Green */
+        body[data-theme-color="emerald"] {
+            --color-primary-50: #ecfdf5;
+            --color-primary-100: #d1fae5;
+            --color-primary-200: #a7f3d0;
+            --color-primary-500: #10b981;
+            --color-primary-600: #059669;
+            --color-primary-700: #047857;
+            --color-primary-800: #065f46;
+            --color-primary-900: #022c22;
+            --color-accent-400: #fcd34d;
             --color-accent-500: #f59e0b;
             --color-accent-600: #d97706;
         }
 
-        /* Theme Variations */
-        body[data-theme="emerald"] {
-            --color-brand-50: #ecfdf5;
-            --color-brand-100: #d1fae5;
-            --color-brand-200: #a7f3d0;
-            --color-brand-500: #10b981;
-            --color-brand-600: #059669;
-            --color-brand-700: #047857;
-            --color-brand-800: #065f46;
-            --color-brand-900: #022c22;
+        /* Theme Preset 3: Sunset Crimson */
+        body[data-theme-color="crimson"] {
+            --color-primary-50: #fff1f2;
+            --color-primary-100: #ffe4e6;
+            --color-primary-200: #fecdd3;
+            --color-primary-500: #f43f5e;
+            --color-primary-600: #e11d48;
+            --color-primary-700: #be123c;
+            --color-primary-800: #881337;
+            --color-primary-900: #4c0519;
+            --color-accent-400: #fcd34d;
             --color-accent-500: #f59e0b;
             --color-accent-600: #d97706;
         }
 
-        body[data-theme="wine"] {
-            --color-brand-50: #fff1f2;
-            --color-brand-100: #ffe4e6;
-            --color-brand-200: #fecdd3;
-            --color-brand-500: #e11d48;
-            --color-brand-600: #be123c;
-            --color-brand-700: #9f1239;
-            --color-brand-800: #881337;
-            --color-brand-900: #4c0519;
-            --color-accent-500: #fbbf24;
-            --color-accent-600: #d97706;
+        /* Theme Preset 4: Cyber Violet */
+        body[data-theme-color="violet"] {
+            --color-primary-50: #f5f3ff;
+            --color-primary-100: #ede9fe;
+            --color-primary-200: #ddd6fe;
+            --color-primary-500: #8b5cf6;
+            --color-primary-600: #7c3aed;
+            --color-primary-700: #6d28d9;
+            --color-primary-800: #4c1d95;
+            --color-primary-900: #2e1065;
+            --color-accent-400: #f43f5e;
+            --color-accent-500: #e11d48;
+            --color-accent-600: #be123c;
         }
 
-        body[data-theme="slate"] {
-            --color-brand-50: #f8fafc;
-            --color-brand-100: #f1f5f9;
-            --color-brand-200: #e2e8f0;
-            --color-brand-500: #475569;
-            --color-brand-600: #334155;
-            --color-brand-700: #1e293b;
-            --color-brand-800: #0f172a;
-            --color-brand-900: #020617;
-            --color-accent-500: #38bdf8;
-            --color-accent-600: #0284c7;
+        /* Theme Preset 5: Deep Slate Blue */
+        body[data-theme-color="slate"] {
+            --color-primary-50: #f8fafc;
+            --color-primary-100: #f1f5f9;
+            --color-primary-200: #e2e8f0;
+            --color-primary-500: #64748b;
+            --color-primary-600: #475569;
+            --color-primary-700: #334155;
+            --color-primary-800: #1e293b;
+            --color-primary-900: #0f172a;
+            --color-accent-400: #38bdf8;
+            --color-accent-500: #0284c7;
+            --color-accent-600: #0369a1;
         }
 
-        .hero-gradient {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 58, 138, 0.85) 100%), url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=1600&auto=format&fit=crop');
+        /* Dynamic Font Rules */
+        body[data-theme-font="jakarta"] {
+            --font-heading: 'Plus Jakarta Sans';
+            --font-body: 'Plus Jakarta Sans';
+        }
+
+        body[data-theme-font="poppins"] {
+            --font-heading: 'Poppins';
+            --font-body: 'Inter';
+        }
+
+        body[data-theme-font="outfit"] {
+            --font-heading: 'Outfit';
+            --font-body: 'Inter';
+        }
+
+        body[data-theme-font="serif"] {
+            --font-heading: 'Playfair Display';
+            --font-body: 'Plus Jakarta Sans';
+        }
+
+        body {
+            font-family: var(--font-body), sans-serif;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: var(--font-heading), sans-serif;
+        }
+
+        .hero-banner {
             background-size: cover;
             background-position: center;
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.92);
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        .hero-pattern {
-            background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
-            background-size: 24px 24px;
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans transition-colors duration-300" data-theme="default">
+<body class="bg-slate-50 text-slate-800 transition-colors duration-300" data-theme-color="royal" data-theme-font="jakarta">
 
-    <div class="bg-brand-900 text-slate-200 text-xs py-2 px-4 shadow-inner">
+    <!-- Top Utility Announcement Bar -->
+    <div class="bg-primary-900 text-slate-200 text-xs py-2 px-4 border-b border-primary-800">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-            <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
-                <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-accent-500"></i> Hours: 8:30 AM - 3:00 PM</span>
-                <span class="hidden sm:inline text-slate-600">|</span>
-                <span class="flex items-center gap-1.5"><i class="fa-solid fa-phone text-accent-500"></i> +91 9733636847 / 7001546954</span>
-                <span class="hidden md:inline text-slate-600">|</span>
-                <span class="hidden md:flex items-center gap-1.5"><i class="fa-solid fa-envelope text-accent-500"></i> holyschool007@gmail.com</span>
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-5">
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-accent-400"></i> Hours: 8:30 AM - 3:00 PM</span>
+                <span class="hidden sm:inline text-primary-700">|</span>
+                <a href="tel:9733636847" class="flex items-center gap-1.5 hover:text-white transition-colors"><i class="fa-solid fa-phone text-accent-400"></i> +91 9733636847 / +91 7001546954</a>
+                <span class="hidden md:inline text-primary-700">|</span>
+                <a href="mailto:holyschool007@gmail.com" class="hidden md:flex items-center gap-1.5 hover:text-white transition-colors"><i class="fa-solid fa-envelope text-accent-400"></i> holyschool007@gmail.com</a>
             </div>
+            
             <div class="flex items-center gap-3">
-                <span class="text-[11px] text-slate-400">Theme:</span>
-                <div class="flex gap-1.5 items-center">
-                    <button onclick="setTheme('default')" class="w-4 h-4 rounded-full bg-blue-800 hover:scale-125 transition-transform" title="Navy Blue Theme"></button>
-                    <button onclick="setTheme('emerald')" class="w-4 h-4 rounded-full bg-emerald-700 hover:scale-125 transition-transform" title="Emerald Green Theme"></button>
-                    <button onclick="setTheme('wine')" class="w-4 h-4 rounded-full bg-rose-800 hover:scale-125 transition-transform" title="Wine Red Theme"></button>
-                    <button onclick="setTheme('slate')" class="w-4 h-4 rounded-full bg-slate-700 hover:scale-125 transition-transform" title="Deep Slate Theme"></button>
+                <button onclick="toggleThemeDrawer()" class="bg-primary-800 hover:bg-primary-700 text-white px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1.5 transition-all shadow-sm border border-primary-700">
+                    <i class="fa-solid fa-wand-magic-sparkles text-accent-400"></i>
+                    <span>Customize Theme</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ticker Notice Bar -->
+    <div class="bg-gradient-to-r from-amber-500 via-accent-500 to-amber-600 text-slate-950 py-2.5 px-4 font-semibold text-xs sm:text-sm shadow-md border-b border-amber-400/40">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-2 overflow-hidden w-full md:w-auto">
+                <span class="bg-slate-900 text-amber-400 text-[11px] px-2.5 py-0.5 rounded-full uppercase tracking-wider font-extrabold shrink-0 animate-pulse">Notice</span>
+                <div class="truncate">
+                    🎓 <strong>Admissions Open for Session 2025–2026</strong> (Nursery to Class 6th). Limited Seats Available!
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="bg-gradient-to-r from-amber-500 via-amber-600 to-amber-500 text-slate-900 py-2.5 px-4 font-semibold text-sm shadow-md border-b border-amber-400/40">
-        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2 text-center md:text-left">
-            <div class="flex items-center gap-2 mx-auto md:mx-0">
-                <span class="bg-slate-900 text-amber-400 text-xs px-2.5 py-0.5 rounded-full uppercase tracking-wider font-bold animate-pulse">Notice</span>
-                <span>🎓 <strong>Admissions Open for Session 2026–2027</strong> (Nursery to Class 6th)</span>
+            <div class="flex items-center gap-2 shrink-0 mx-auto md:mx-0">
+                <button onclick="openModal('enquiry-modal')" class="bg-slate-900 hover:bg-slate-800 text-white text-xs px-3.5 py-1.5 rounded-full transition-all shadow flex items-center gap-1.5 font-bold">
+                    Inquire Now <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                </button>
+                <a href="admissions.html" class="bg-white hover:bg-slate-100 text-slate-900 text-xs px-3.5 py-1.5 rounded-full transition-all shadow flex items-center gap-1.5 font-bold">
+                    Admissions Page <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
             </div>
-            <a href="admissions.html" class="mx-auto md:mx-0 bg-slate-900 hover:bg-slate-800 text-white text-xs px-4 py-1.5 rounded-full transition-all shadow hover:shadow-lg flex items-center gap-1.5">
-                Apply Online <i class="fa-solid fa-arrow-right text-[10px]"></i>
-            </a>
         </div>
     </div>
 
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo & School Name -->
+                <!-- Brand Logo & School Name -->
                 <a href="index.html" class="flex items-center gap-3 group">
-                    <div class="w-12 h-12 bg-gradient-to-br from-brand-700 to-brand-900 text-white rounded-xl flex items-center justify-center font-serif text-2xl font-bold shadow-md group-hover:scale-105 transition-transform">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary-700 to-primary-900 text-amber-400 rounded-xl flex items-center justify-center font-serif text-2xl font-black shadow-md group-hover:scale-105 transition-transform border border-primary-600/30">
                         H
                     </div>
                     <div>
-                        <span class="block text-xl font-extrabold text-brand-800 tracking-tight font-serif group-hover:text-brand-600 transition-colors">HOLY INTERNATIONAL</span>
-                        <span class="block text-xs font-semibold uppercase tracking-widest text-slate-500">SCHOOL • KASHINAGAR</span>
+                        <span class="block text-xl sm:text-2xl font-extrabold text-primary-900 tracking-tight font-heading leading-none group-hover:text-primary-600 transition-colors">HOLY INTERNATIONAL</span>
+                        <span class="block text-[11px] font-bold uppercase tracking-widest text-slate-500 mt-1">SCHOOL • KASHINAGAR, RAIDIGHI</span>
                     </div>
                 </a>
 
-                <!-- Desktop Navigation Links -->
-                <nav class="hidden lg:flex items-center gap-8">
-                    <a href="#home" class="text-brand-700 font-bold border-b-2 border-brand-600 pb-1 text-sm tracking-wide">Home</a>
-                    <a href="#about" class="text-slate-600 hover:text-brand-700 font-medium text-sm tracking-wide transition-colors">About Us</a>
-                    <a href="#academics" class="text-slate-600 hover:text-brand-700 font-medium text-sm tracking-wide transition-colors">Academics</a>
-                    <a href="#facilities" class="text-slate-600 hover:text-brand-700 font-medium text-sm tracking-wide transition-colors">Facilities</a>
-                    <a href="#principal" class="text-slate-600 hover:text-brand-700 font-medium text-sm tracking-wide transition-colors">Principal's Desk</a>
-                    <a href="#contact" class="text-slate-600 hover:text-brand-700 font-medium text-sm tracking-wide transition-colors">Contact</a>
+                <!-- Desktop Navigation Bar Links -->
+                <nav class="hidden lg:flex items-center gap-7">
+                    <a href="#home" class="text-primary-700 font-bold border-b-2 border-primary-600 pb-1 text-sm tracking-wide">Home</a>
+                    <a href="#about" class="text-slate-600 hover:text-primary-700 font-medium text-sm tracking-wide transition-colors">About Us</a>
+                    <a href="#academics" class="text-slate-600 hover:text-primary-700 font-medium text-sm tracking-wide transition-colors">Academics</a>
+                    <a href="#facilities" class="text-slate-600 hover:text-primary-700 font-medium text-sm tracking-wide transition-colors">Facilities</a>
+                    <a href="#principal" class="text-slate-600 hover:text-primary-700 font-medium text-sm tracking-wide transition-colors">Principal's Desk</a>
+                    <a href="#gallery" class="text-slate-600 hover:text-primary-700 font-medium text-sm tracking-wide transition-colors">Gallery</a>
+                    <a href="#contact" class="text-slate-600 hover:text-primary-700 font-medium text-sm tracking-wide transition-colors">Contact</a>
                 </nav>
 
-                <!-- CTA Button -->
+                <!-- Desktop Quick Actions -->
                 <div class="hidden lg:flex items-center gap-3">
-                    <a href="admissions.html" class="bg-gradient-to-r from-brand-700 to-brand-800 hover:from-brand-800 hover:to-brand-900 text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    <button onclick="openModal('tour-modal')" class="text-slate-700 hover:text-primary-700 font-semibold text-xs px-3.5 py-2 rounded-xl hover:bg-slate-100 transition-colors">
+                        <i class="fa-solid fa-calendar-check text-primary-600 mr-1"></i> Book Tour
+                    </button>
+                    <a href="admissions.html" class="bg-gradient-to-r from-primary-700 to-primary-900 hover:from-primary-800 hover:to-primary-950 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 border border-primary-600/30">
                         Admissions Form
                     </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
-                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-600 hover:text-brand-700 hover:bg-slate-100 transition-colors" aria-label="Toggle Navigation Menu">
-                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                <!-- Mobile Menu Hamburger Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl text-slate-700 hover:text-primary-700 hover:bg-slate-100 transition-colors" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Drawer Navigation -->
-        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3">
-            <a href="#home" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-semibold text-brand-700 bg-brand-50">Home</a>
-            <a href="#about" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-medium text-slate-600 hover:bg-slate-50">About Us</a>
-            <a href="#academics" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-medium text-slate-600 hover:bg-slate-50">Academics</a>
-            <a href="#facilities" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-medium text-slate-600 hover:bg-slate-50">Facilities</a>
-            <a href="#principal" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-medium text-slate-600 hover:bg-slate-50">Principal's Desk</a>
-            <a href="#contact" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-medium text-slate-600 hover:bg-slate-50">Contact</a>
-            <div class="pt-2">
-                <a href="admissions.html" class="block w-full text-center bg-brand-700 text-white font-semibold py-2.5 rounded-xl shadow">
-                    Admissions Form 2026–2027
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3 shadow-xl">
+            <a href="#home" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-xl font-bold text-primary-700 bg-primary-50">Home</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-xl font-medium text-slate-700 hover:bg-slate-50">About Us</a>
+            <a href="#academics" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-xl font-medium text-slate-700 hover:bg-slate-50">Academics</a>
+            <a href="#facilities" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-xl font-medium text-slate-700 hover:bg-slate-50">Facilities</a>
+            <a href="#principal" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-xl font-medium text-slate-700 hover:bg-slate-50">Principal's Desk</a>
+            <a href="#gallery" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-xl font-medium text-slate-700 hover:bg-slate-50">Gallery</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block px-3.5 py-2.5 rounded-xl font-medium text-slate-700 hover:bg-slate-50">Contact Us</a>
+            <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
+                <button onclick="toggleMobileMenu(); openModal('tour-modal')" class="w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-2.5 rounded-xl transition-colors text-xs">
+                    <i class="fa-solid fa-calendar-check text-primary-600 mr-1.5"></i> Schedule Campus Tour
+                </button>
+                <a href="admissions.html" class="block w-full text-center bg-primary-700 hover:bg-primary-800 text-white font-bold py-3 rounded-xl shadow-md text-xs">
+                    Admissions Form 2025–2026
                 </a>
             </div>
         </div>
     </header>
 
-    <section id="home" class="relative hero-gradient text-white py-24 lg:py-32 hero-pattern overflow-hidden">
+    <section id="home" class="relative bg-primary-900 text-white py-20 lg:py-32 overflow-hidden">
+        <!-- Hero Background Image Overlay with Fallbacks -->
+        <div class="absolute inset-0 z-0">
+            <img id="hero-img" 
+                 src="https://raw.githubusercontent.com/websitehero2026/holy-international-school/main/files/school.jpeg" 
+                 alt="Holy International School Campus Building" 
+                 class="w-full h-full object-cover object-center opacity-25 filter brightness-75 scale-105 transition-all duration-700"
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=1600&auto=format&fit=crop';">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary-950 via-primary-900/90 to-primary-900/60"></div>
+        </div>
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="max-w-3xl">
-                <span class="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 border border-amber-400/30 font-semibold px-3.5 py-1.5 rounded-full text-xs uppercase tracking-wider mb-6">
-                    <i class="fa-solid fa-star text-amber-400"></i> Quality Education in South 24 Parganas
-                </span>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-serif leading-tight mb-6">
-                    Empowering Minds, <br>
-                    <span class="text-amber-400 italic">Shaping Global Leaders.</span>
-                </h1>
-                <p class="text-lg sm:text-xl text-slate-200 font-light mb-8 leading-relaxed">
-                    Welcome to <strong>Holy International School</strong>, where academic excellence meets holistic development in a state-of-the-art learning environment from Nursery to Class 6th.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="admissions.html" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-7 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
-                        Apply For Admission <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                    <a href="#about" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md font-semibold px-6 py-3.5 rounded-xl transition-all">
-                        Explore Our Campus
-                    </a>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <span class="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 border border-amber-400/30 font-semibold px-4 py-1.5 rounded-full text-xs uppercase tracking-wider shadow-inner">
+                        <i class="fa-solid fa-award text-amber-400"></i> Leading English Medium School in South 24 Parganas
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-heading leading-tight tracking-tight text-white">
+                        Empowering Minds, <br>
+                        <span class="text-amber-400 italic">Shaping Global Leaders.</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-200 font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Welcome to <strong>Holy International School</strong> (Kashinagar, Raidighi). We cultivate academic rigor, ethical values, and creative potential in an inspiring environment from <strong>Nursery to Class 6th</strong>.
+                    </p>
+                    
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
+                        <a href="admissions.html" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-7 py-3.5 rounded-xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-0.5 flex items-center gap-2 text-sm">
+                            Apply For Admission <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <button onclick="openModal('enquiry-modal')" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md font-semibold px-6 py-3.5 rounded-xl transition-all hover:border-white/50 text-sm">
+                            Instant Inquiry
+                        </button>
+                    </div>
+
+                    <div class="pt-6 flex flex-wrap justify-center lg:justify-start items-center gap-6 text-xs text-slate-300 font-medium border-t border-white/10">
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Recognized Curriculum</span>
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Modern Digital Infrastructure</span>
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-400"></i> Safe School Bus Network</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Hero Floating Card -->
+                <div class="lg:col-span-5 hidden lg:block">
+                    <div class="glass-dark p-7 rounded-3xl shadow-2xl space-y-6 relative border border-white/15">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <div>
+                                <span class="text-amber-400 font-bold text-xs uppercase tracking-wider">Quick Highlights</span>
+                                <h3 class="text-xl font-bold font-heading text-white">Why Choose HIS?</h3>
+                            </div>
+                            <span class="w-10 h-10 rounded-xl bg-amber-400/20 border border-amber-400/40 text-amber-400 flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-star"></i>
+                            </span>
+                        </div>
+
+                        <ul class="space-y-3 text-xs text-slate-200">
+                            <li class="flex items-start gap-3 p-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
+                                <i class="fa-solid fa-chalkboard-user text-amber-400 text-base mt-0.5"></i>
+                                <div>
+                                    <strong class="text-white block text-sm">Interactive Smart Classrooms</strong>
+                                    Audio-visual digital instruction for intuitive learning.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 p-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
+                                <i class="fa-solid fa-shield-halved text-amber-400 text-base mt-0.5"></i>
+                                <div>
+                                    <strong class="text-white block text-sm">100% CCTV Monitored</strong>
+                                    Round-the-clock campus safety for students and staff.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 p-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
+                                <i class="fa-solid fa-bus text-amber-400 text-base mt-0.5"></i>
+                                <div>
+                                    <strong class="text-white block text-sm">Extensive Transport Services</strong>
+                                    Safe pick-and-drop covering Kashinagar, Raidighi, and surroundings.
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="pt-2 text-center">
+                            <button onclick="openModal('tour-modal')" class="w-full bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-500 hover:to-primary-600 text-white font-bold py-3 rounded-xl transition-all shadow-md text-xs tracking-wider uppercase">
+                                Book Campus Visit Tour
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Floating Quick Stat Cards -->
+        <!-- Quick Stats Counters -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 relative z-10">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-                <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5 text-center">
-                    <i class="fa-solid fa-graduation-cap text-amber-400 text-2xl mb-2"></i>
-                    <div class="text-2xl sm:text-3xl font-extrabold">Nursery – 6th</div>
-                    <div class="text-xs text-slate-300 uppercase tracking-wider mt-1">Grades Offered</div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 text-center transform hover:-translate-y-1 transition-all">
+                    <i class="fa-solid fa-graduation-cap text-amber-400 text-2xl mb-1"></i>
+                    <div class="text-2xl sm:text-3xl font-black text-white font-heading">Nursery – 6th</div>
+                    <div class="text-[11px] text-slate-300 font-semibold uppercase tracking-wider mt-1">Grades Offered</div>
                 </div>
-                <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5 text-center">
-                    <i class="fa-solid fa-chalkboard-user text-amber-400 text-2xl mb-2"></i>
-                    <div class="text-2xl sm:text-3xl font-extrabold">Smart</div>
-                    <div class="text-xs text-slate-300 uppercase tracking-wider mt-1">Digital Classrooms</div>
+                <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 text-center transform hover:-translate-y-1 transition-all">
+                    <i class="fa-solid fa-award text-amber-400 text-2xl mb-1"></i>
+                    <div class="text-2xl sm:text-3xl font-black text-white font-heading">100%</div>
+                    <div class="text-[11px] text-slate-300 font-semibold uppercase tracking-wider mt-1">Holistic Focus</div>
                 </div>
-                <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5 text-center">
-                    <i class="fa-solid fa-shield-halved text-amber-400 text-2xl mb-2"></i>
-                    <div class="text-2xl sm:text-3xl font-extrabold">24/7 CCTV</div>
-                    <div class="text-xs text-slate-300 uppercase tracking-wider mt-1">Campus Security</div>
+                <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 text-center transform hover:-translate-y-1 transition-all">
+                    <i class="fa-solid fa-laptop-code text-amber-400 text-2xl mb-1"></i>
+                    <div class="text-2xl sm:text-3xl font-black text-white font-heading">Smart & Digital</div>
+                    <div class="text-[11px] text-slate-300 font-semibold uppercase tracking-wider mt-1">Modern Labs & AV</div>
                 </div>
-                <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5 text-center">
-                    <i class="fa-solid fa-bus text-amber-400 text-2xl mb-2"></i>
-                    <div class="text-2xl sm:text-3xl font-extrabold">Safe Bus</div>
-                    <div class="text-xs text-slate-300 uppercase tracking-wider mt-1">Transport Service</div>
+                <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 text-center transform hover:-translate-y-1 transition-all">
+                    <i class="fa-solid fa-shield-heart text-amber-400 text-2xl mb-1"></i>
+                    <div class="text-2xl sm:text-3xl font-black text-white font-heading">24/7</div>
+                    <div class="text-[11px] text-slate-300 font-semibold uppercase tracking-wider mt-1">Campus Safety</div>
                 </div>
             </div>
         </div>
@@ -258,104 +420,141 @@
 
     <section id="about" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div class="space-y-6">
-                    <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full">About Holy International School</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold font-serif text-slate-900 leading-tight">
-                        Nurturing Today's Learners Into Tomorrow's Visionaries
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-primary-600 font-bold text-xs uppercase tracking-widest bg-primary-50 px-3.5 py-1.5 rounded-full border border-primary-100">
+                        About Holy International School
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 leading-tight">
+                        Nurturing Today's Learners Into Tomorrow's Global Visionaries
                     </h2>
-                    <p class="text-slate-600 leading-relaxed">
-                        Located at <strong>Sankar Purkait Chak, Kashinagar (Raidighi)</strong>, Holy International School is dedicated to nurturing young minds in a safe, joyful, and inspiring learning environment. We combine strong academic foundations with sports, modern computing, science, and character education.
+                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                        Situated at <strong>Vill. - Sankar Purkait Chak, P.O. - Kashinagar, P.S. - Raidighi</strong>, Holy International School is dedicated to cultivating intellectual curiosity, moral values, and emotional intelligence. We aim to equip young learners with the knowledge and leadership skills required in a rapidly changing world.
                     </p>
+                    
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                        <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
-                            <i class="fa-solid fa-seedling text-brand-600 text-xl mt-1"></i>
-                            <div>
-                                <h4 class="font-bold text-slate-900 text-sm">Holistic Growth</h4>
-                                <p class="text-xs text-slate-500">Balancing academics, ethics, and co-curricular activities.</p>
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 hover:border-primary-200 transition-colors">
+                            <div class="w-10 h-10 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center font-bold mb-3">
+                                <i class="fa-solid fa-seedling"></i>
                             </div>
+                            <h4 class="font-bold text-slate-900 text-sm">Holistic Learning</h4>
+                            <p class="text-xs text-slate-500 mt-1">A fine blend of academic excellence, ethics, sports, and life skills.</p>
                         </div>
-                        <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
-                            <i class="fa-solid fa-heart-pulse text-brand-600 text-xl mt-1"></i>
-                            <div>
-                                <h4 class="font-bold text-slate-900 text-sm">Safe & Supportive</h4>
-                                <p class="text-xs text-slate-500">Purified drinking water, CCTV security, and caring staff.</p>
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 hover:border-primary-200 transition-colors">
+                            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold mb-3">
+                                <i class="fa-solid fa-heart-pulse"></i>
                             </div>
+                            <h4 class="font-bold text-slate-900 text-sm">Child Safety First</h4>
+                            <p class="text-xs text-slate-500 mt-1">Filtered RO water, full CCTV surveillance, and dedicated staff care.</p>
                         </div>
+                    </div>
+
+                    <div class="pt-2 flex items-center gap-4">
+                        <a href="#contact" class="bg-primary-700 hover:bg-primary-800 text-white font-bold text-xs px-6 py-3 rounded-xl shadow transition-all">
+                            Visit Our Campus
+                        </a>
+                        <button onclick="openModal('enquiry-modal')" class="text-primary-700 hover:text-primary-900 font-bold text-xs flex items-center gap-1.5">
+                            Learn More About Curriculum <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="relative">
+
+                <div class="lg:col-span-6 relative">
                     <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1000&auto=format&fit=crop" alt="School Classroom and Activity" class="w-full h-[400px] object-cover" onerror="this.src='https://placehold.co/800x600/1e3a8a/ffffff?text=Holy+International+School'">
+                        <img id="about-school-img"
+                             src="https://raw.githubusercontent.com/websitehero2026/holy-international-school/main/files/school.jpeg" 
+                             alt="Holy International School Infrastructure" 
+                             class="w-full h-[420px] object-cover hover:scale-105 transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1000&auto=format&fit=crop';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-white">
+                            <span class="bg-amber-500 text-slate-950 font-extrabold text-[10px] uppercase px-2.5 py-1 rounded-md tracking-wider">Campus View</span>
+                            <h3 class="text-lg font-bold mt-1 font-heading">Modern Educational Environment</h3>
+                            <p class="text-xs text-slate-200 mt-0.5">Spacious grounds, digital facilities, and safe infrastructure in Raidighi.</p>
+                        </div>
                     </div>
-                    <div class="absolute -bottom-6 -left-6 bg-brand-800 text-white p-6 rounded-2xl shadow-xl hidden sm:block max-w-xs">
-                        <div class="text-3xl font-extrabold text-amber-400 font-serif">8:30 AM</div>
-                        <div class="text-xs text-slate-300 mt-1">Official School Operating Hours (Mon - Sat)</div>
+
+                    <div class="absolute -bottom-6 -right-6 bg-primary-900 text-white p-5 rounded-2xl shadow-xl hidden sm:block max-w-xs border border-primary-700">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-clock text-amber-400 text-2xl"></i>
+                            <div>
+                                <div class="text-xl font-black font-heading text-amber-400">8:30 AM - 3:00 PM</div>
+                                <div class="text-[11px] text-slate-300">Official Operating Hours (Mon - Sat)</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="academics" class="py-20 bg-slate-50">
+    <section id="academics" class="py-20 bg-slate-50 border-y border-slate-200/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100/60 px-3 py-1 rounded-full">Educational Programs</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold font-serif text-slate-900 mt-3">Classes Offered</h2>
-                <p class="text-slate-600 mt-2 text-sm">Structured learning programs designed for early age foundational growth and primary excellence.</p>
+                <span class="text-primary-600 font-bold text-xs uppercase tracking-widest bg-primary-100/60 px-3.5 py-1 rounded-full border border-primary-200/50">
+                    Academic Programs
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-3">Classes Offered</h2>
+                <p class="text-slate-600 mt-2 text-sm">Structured learning programs designed for foundational development and primary academic excellence.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Pre-Primary Wing -->
-                <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-200/80 hover:shadow-xl transition-all flex flex-col justify-between">
+                <div class="bg-white rounded-3xl p-7 shadow-md border border-slate-200 hover:shadow-xl transition-all flex flex-col justify-between group">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl font-bold mb-4">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl font-bold mb-5 group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-shapes"></i>
                         </div>
                         <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Pre-Primary Section</span>
-                        <h3 class="text-xl font-bold text-slate-900 mt-1 mb-3">Nursery, LKG & UKG</h3>
-                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                        <h3 class="text-2xl font-extrabold text-slate-900 mt-1 mb-3 font-heading">Nursery, LKG & UKG</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm mb-4 leading-relaxed">
                             Play-based learning, sensory development, storytelling, phonics, motor skills improvement, and interactive art sessions for early childhood foundation.
                         </p>
                     </div>
-                    <a href="admissions.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-700 hover:text-brand-900 mt-2">
-                        Enroll in Pre-Primary <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    </a>
+                    <div class="pt-4 border-t border-slate-100">
+                        <a href="admissions.html" class="inline-flex items-center gap-2 text-xs font-bold text-primary-700 hover:text-primary-900 group-hover:translate-x-1 transition-all">
+                            Enroll in Pre-Primary <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Lower Primary Wing -->
-                <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-200/80 hover:shadow-xl transition-all flex flex-col justify-between relative overflow-hidden">
-                    <div class="absolute -right-12 -top-12 w-28 h-28 bg-brand-50 rounded-full"></div>
+                <div class="bg-white rounded-3xl p-7 shadow-md border border-slate-200 hover:shadow-xl transition-all flex flex-col justify-between group relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-28 h-28 bg-primary-50 rounded-full"></div>
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl font-bold mb-4 relative">
+                        <div class="w-14 h-14 rounded-2xl bg-primary-100 text-primary-700 flex items-center justify-center text-2xl font-bold mb-5 group-hover:scale-110 transition-transform relative">
                             <i class="fa-solid fa-book-open-reader"></i>
                         </div>
-                        <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Lower Primary</span>
-                        <h3 class="text-xl font-bold text-slate-900 mt-1 mb-3">Classes 1st to 3rd</h3>
-                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                        <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">Lower Primary</span>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mt-1 mb-3 font-heading">Classes 1st to 3rd</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm mb-4 leading-relaxed">
                             Focusing on core literacy, numeracy, environmental studies, basic computer awareness, and creative co-curricular activities.
                         </p>
                     </div>
-                    <a href="admissions.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-700 hover:text-brand-900 mt-2">
-                        Enroll in Lower Primary <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    </a>
+                    <div class="pt-4 border-t border-slate-100">
+                        <a href="admissions.html" class="inline-flex items-center gap-2 text-xs font-bold text-primary-700 hover:text-primary-900 group-hover:translate-x-1 transition-all">
+                            Enroll in Lower Primary <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Upper Primary Wing -->
-                <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-200/80 hover:shadow-xl transition-all flex flex-col justify-between">
+                <div class="bg-white rounded-3xl p-7 shadow-md border border-slate-200 hover:shadow-xl transition-all flex flex-col justify-between group">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl font-bold mb-4">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl font-bold mb-5 group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-atom"></i>
                         </div>
                         <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Upper Primary</span>
-                        <h3 class="text-xl font-bold text-slate-900 mt-1 mb-3">Classes 4th to 6th</h3>
-                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
-                            Advanced conceptual curriculum including science laboratory activities, computer lab hands-on sessions, sports tournaments, and analytical skill development.
+                        <h3 class="text-2xl font-extrabold text-slate-900 mt-1 mb-3 font-heading">Classes 4th to 6th</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm mb-4 leading-relaxed">
+                            Advanced conceptual curriculum including science laboratory experiments, computer lab hands-on sessions, sports tournaments, and analytical skill development.
                         </p>
                     </div>
-                    <a href="admissions.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-700 hover:text-brand-900 mt-2">
-                        Enroll in Upper Primary <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    </a>
+                    <div class="pt-4 border-t border-slate-100">
+                        <a href="admissions.html" class="inline-flex items-center gap-2 text-xs font-bold text-primary-700 hover:text-primary-900 group-hover:translate-x-1 transition-all">
+                            Enroll in Upper Primary <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -364,107 +563,129 @@
     <section id="facilities" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full">Campus Infrastructure</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold font-serif text-slate-900 mt-3">Our Campus Facilities</h2>
+                <span class="text-primary-600 font-bold text-xs uppercase tracking-widest bg-primary-50 px-3.5 py-1 rounded-full border border-primary-100">
+                    Campus Infrastructure
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-3">Our Campus Facilities</h2>
                 <p class="text-slate-600 mt-2 text-sm">We provide standard facilities designed to ensure a modern, clean, safe, and engaging environment for students.</p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Smart Classrooms -->
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-brand-300 hover:bg-white hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-primary-300 hover:bg-white hover:shadow-xl transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-display"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 text-lg mb-2">Smart Classrooms</h3>
+                    <h3 class="font-bold text-slate-900 text-base mb-1.5 font-heading">Smart Classrooms</h3>
                     <p class="text-xs text-slate-600 leading-relaxed">Interactive audio-visual learning tools that make lessons engaging and easy to understand.</p>
                 </div>
 
                 <!-- Computer Lab -->
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-brand-300 hover:bg-white hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-primary-300 hover:bg-white hover:shadow-xl transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-laptop-code"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 text-lg mb-2">Computer Lab</h3>
+                    <h3 class="font-bold text-slate-900 text-base mb-1.5 font-heading">Computer Lab</h3>
                     <p class="text-xs text-slate-600 leading-relaxed">Modern computers and practical digital education for students from early primary levels.</p>
                 </div>
 
                 <!-- Library -->
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-brand-300 hover:bg-white hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-book text-xl"></i>
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-primary-300 hover:bg-white hover:shadow-xl transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-book"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 text-lg mb-2">Library</h3>
+                    <h3 class="font-bold text-slate-900 text-base mb-1.5 font-heading">Resourceful Library</h3>
                     <p class="text-xs text-slate-600 leading-relaxed">A wide collection of storybooks, reference materials, and educational periodicals.</p>
                 </div>
 
                 <!-- Science Lab -->
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-brand-300 hover:bg-white hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-primary-300 hover:bg-white hover:shadow-xl transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-flask"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 text-lg mb-2">Science Lab</h3>
+                    <h3 class="font-bold text-slate-900 text-base mb-1.5 font-heading">Science Kit & Lab</h3>
                     <p class="text-xs text-slate-600 leading-relaxed">Hands-on experiment kits and practical tools to ignite scientific curiosity.</p>
                 </div>
 
                 <!-- Safe Transport -->
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-brand-300 hover:bg-white hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-primary-300 hover:bg-white hover:shadow-xl transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-bus-simple"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 text-lg mb-2">Safe Transport</h3>
+                    <h3 class="font-bold text-slate-900 text-base mb-1.5 font-heading">Safe Bus Transport</h3>
                     <p class="text-xs text-slate-600 leading-relaxed">Dedicated bus pick-and-drop service covering Kashinagar, Raidighi, and nearby areas.</p>
                 </div>
 
                 <!-- Playground / Sports -->
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-brand-300 hover:bg-white hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-primary-300 hover:bg-white hover:shadow-xl transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-futbol"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 text-lg mb-2">Playground & Sports</h3>
+                    <h3 class="font-bold text-slate-900 text-base mb-1.5 font-heading">Playground & Sports</h3>
                     <p class="text-xs text-slate-600 leading-relaxed">Spacious ground for outdoor sports, physical training, fitness, and annual games.</p>
                 </div>
 
                 <!-- CCTV Security -->
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-brand-300 hover:bg-white hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-primary-300 hover:bg-white hover:shadow-xl transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-video"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 text-lg mb-2">CCTV Security</h3>
+                    <h3 class="font-bold text-slate-900 text-base mb-1.5 font-heading">24/7 CCTV Security</h3>
                     <p class="text-xs text-slate-600 leading-relaxed">24/7 camera monitoring across classrooms and campus premises for complete student safety.</p>
                 </div>
 
-                <!-- Filtered Water -->
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-brand-300 hover:bg-white hover:shadow-lg transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                <!-- Pure Water -->
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-primary-300 hover:bg-white hover:shadow-xl transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-faucet-drip"></i>
                     </div>
-                    <h3 class="font-bold text-slate-900 text-lg mb-2">Filtered Water</h3>
+                    <h3 class="font-bold text-slate-900 text-base mb-1.5 font-heading">Filtered RO Water</h3>
                     <p class="text-xs text-slate-600 leading-relaxed">Pure RO/filtered drinking water stations installed for health and hygiene.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="principal" class="py-20 bg-brand-900 text-white relative overflow-hidden">
+    <section id="principal" class="py-20 bg-primary-900 text-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 lg:p-12">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    <div class="lg:col-span-4 text-center">
-                        <div class="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-amber-400 shadow-2xl mb-4">
-                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop" alt="Principal Akhil Sardar" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x400/1e293b/ffffff?text=Principal+Akhil+Sardar'">
+            <div class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 lg:p-12 shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    
+                    <!-- Principal Photo & Details with Fallback -->
+                    <div class="lg:col-span-5 text-center">
+                        <div class="relative w-52 h-52 sm:w-60 sm:h-60 mx-auto rounded-full overflow-hidden border-4 border-amber-400 shadow-2xl mb-5 group">
+                            <img id="principal-img" 
+                                 src="https://raw.githubusercontent.com/websitehero2026/holy-international-school/main/files/akhil-sardar.jpeg" 
+                                 alt="Principal Mr. Akhil Sardar" 
+                                 class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop';">
+                            <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors"></div>
                         </div>
-                        <h3 class="text-2xl font-bold font-serif text-white">Mr. Akhil Sardar</h3>
-                        <p class="text-amber-400 text-xs uppercase tracking-wider font-semibold mt-0.5">Principal, Holy International School</p>
+                        <h3 class="text-2xl font-extrabold font-heading text-white">Mr. Akhil Sardar</h3>
+                        <p class="text-amber-400 text-xs uppercase tracking-wider font-bold mt-1">Principal, Holy International School</p>
+                        <div class="mt-3 flex justify-center gap-2">
+                            <span class="bg-white/10 text-slate-300 text-[11px] px-3 py-1 rounded-full border border-white/10">Educator & Mentor</span>
+                        </div>
                     </div>
-                    <div class="lg:col-span-8 space-y-4">
-                        <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Message From The Principal</span>
-                        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-white">Empowering Mind, Heart, and Character</h2>
-                        <blockquote class="text-slate-300 italic text-sm sm:text-base leading-relaxed">
-                            At Holy International School, we nurture young minds from Nursery to Class 6th with holistic care, moral values, and modern education. Our dedicated educators foster curiosity, creativity, and confidence in every child, preparing them for a bright future. We welcome parents to join hands with us in shaping tomorrow's leaders.
+
+                    <!-- Principal Message -->
+                    <div class="lg:col-span-7 space-y-5">
+                        <span class="text-xs font-bold text-amber-400 uppercase tracking-widest bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20">
+                            Message From The Principal
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-white leading-snug">
+                            "Empowering Mind, Heart, and Character For a Global Tomorrow"
+                        </h2>
+                        <blockquote class="text-slate-200 text-sm sm:text-base leading-relaxed italic border-l-2 border-amber-400 pl-4 py-1">
+                            "At Holy International School, we nurture young minds from Nursery to Class 6th with holistic care, moral values, and modern digital education. Our dedicated educators foster curiosity, creativity, and confidence in every child, preparing them for a bright and successful future. We extend a warm welcome to all parents to partner with us in shaping tomorrow's leaders."
                         </blockquote>
-                        <div class="pt-2 flex items-center gap-4">
-                            <a href="admissions.html" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-bold px-5 py-2.5 rounded-xl transition-all shadow">
-                                Connect With Principal's Desk
+                        
+                        <div class="pt-3 flex flex-wrap items-center gap-4">
+                            <button onclick="openModal('enquiry-modal')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-bold px-6 py-3 rounded-xl transition-all shadow-lg">
+                                Contact Principal's Desk
+                            </button>
+                            <a href="tel:9733636847" class="text-xs text-slate-300 hover:text-white flex items-center gap-2 font-medium">
+                                <i class="fa-solid fa-phone text-amber-400"></i> Direct Line: +91 9733636847
                             </a>
                         </div>
                     </div>
@@ -473,23 +694,134 @@
         </div>
     </section>
 
-    <section id="contact" class="py-20 bg-slate-50">
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-primary-600 font-bold text-xs uppercase tracking-widest bg-primary-50 px-3.5 py-1 rounded-full border border-primary-100">
+                    Glimpse of School Life
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-3">Campus Photo Gallery</h2>
+                <p class="text-slate-600 mt-2 text-sm">Take a look inside our dynamic environment, student activities, and modern facilities.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="rounded-2xl overflow-hidden shadow-md group relative h-64 border border-slate-100">
+                    <img src="https://raw.githubusercontent.com/websitehero2026/holy-international-school/main/files/school.jpeg" alt="School Building" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?q=80&w=600&auto=format&fit=crop'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                        <span class="text-white font-bold text-sm">School Campus Building</span>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden shadow-md group relative h-64 border border-slate-100">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop" alt="Classroom Interactive Learning" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                        <span class="text-white font-bold text-sm">Interactive Classrooms</span>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden shadow-md group relative h-64 border border-slate-100">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=600&auto=format&fit=crop" alt="Computer Lab & Digital Sessions" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                        <span class="text-white font-bold text-sm">Computer & Digital Education</span>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden shadow-md group relative h-64 border border-slate-100">
+                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=600&auto=format&fit=crop" alt="Activity & Sports Ground" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                        <span class="text-white font-bold text-sm">Sports & Outdoor Physical Fitness</span>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden shadow-md group relative h-64 border border-slate-100">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop" alt="Pre-Primary Early Learning" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                        <span class="text-white font-bold text-sm">Pre-Primary Play Activities</span>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden shadow-md group relative h-64 border border-slate-100">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop" alt="Library Reading Corner" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                        <span class="text-white font-bold text-sm">Reading Corner & Library</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-primary-600 font-bold text-xs uppercase tracking-widest bg-primary-100/60 px-3.5 py-1 rounded-full border border-primary-200">
+                    Frequently Asked Questions
+                </span>
+                <h2 class="text-3xl font-extrabold font-heading text-slate-900 mt-3">Parents' Questions Answered</h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq('faq-1')" class="w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span>What classes are currently open for admission?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform" id="faq-1-icon"></i>
+                    </button>
+                    <div id="faq-1" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-3">
+                        Admissions are open for Session 2025–2026 for grades starting from Nursery, LKG, UKG up to Class 6th. You can fill out our online form or visit the school campus.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq('faq-2')" class="w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span>What are the daily operating hours for the school?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform" id="faq-2-icon"></i>
+                    </button>
+                    <div id="faq-2" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-3">
+                        The regular school operating hours are from 8:30 AM to 3:00 PM, Monday through Saturday. The school office is open during these hours for parents' inquiries.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq('faq-3')" class="w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span>Is transport service available for nearby areas?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform" id="faq-3-icon"></i>
+                    </button>
+                    <div id="faq-3" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-3">
+                        Yes! We provide safe school bus transportation covering Kashinagar, Raidighi, and adjacent villages across South 24 Parganas.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq('faq-4')" class="w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span>How is student safety ensured on campus?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform" id="faq-4-icon"></i>
+                    </button>
+                    <div id="faq-4" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-3">
+                        Our entire campus is under 24/7 CCTV camera surveillance. We have gated security, purified RO drinking water stations, and attentive staff at all times.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100/60 px-3 py-1 rounded-full">Reach Out To Us</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold font-serif text-slate-900 mt-3">Contact Details & Location</h2>
+                <span class="text-primary-600 font-bold text-xs uppercase tracking-widest bg-primary-50 px-3.5 py-1 rounded-full border border-primary-100">
+                    Reach Out To Us
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-3">Contact Details & Location</h2>
                 <p class="text-slate-600 mt-2 text-sm">Have questions regarding admissions or campus visits? Visit our school office or call us directly.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 <!-- Info Cards -->
-                <div class="lg:col-span-5 space-y-6">
-                    <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200 flex items-start gap-4">
-                        <div class="w-12 h-12 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center shrink-0 text-xl">
+                <div class="lg:col-span-5 space-y-5">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex items-start gap-4">
+                        <div class="w-12 h-12 bg-primary-100 text-primary-700 rounded-xl flex items-center justify-center shrink-0 text-xl font-bold">
                             <i class="fa-solid fa-location-dot"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-slate-900 text-base">Campus Address</h4>
+                            <h4 class="font-bold text-slate-900 text-base font-heading">Campus Address</h4>
                             <p class="text-xs text-slate-600 mt-1 leading-relaxed">
                                 Vill. - Sankar Purkait Chak, P.O. - Kashinagar, P.S. - Raidighi, <br>
                                 Dist. - South 24 Parganas, State - West Bengal, PIN – 743349
@@ -497,58 +829,62 @@
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200 flex items-start gap-4">
-                        <div class="w-12 h-12 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center shrink-0 text-xl">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex items-start gap-4">
+                        <div class="w-12 h-12 bg-primary-100 text-primary-700 rounded-xl flex items-center justify-center shrink-0 text-xl font-bold">
                             <i class="fa-solid fa-phone"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-slate-900 text-base">Phone Numbers</h4>
+                            <h4 class="font-bold text-slate-900 text-base font-heading">Phone Contacts</h4>
                             <p class="text-xs text-slate-600 mt-1 leading-relaxed">
-                                <a href="tel:9733636847" class="hover:text-brand-600">9733636847</a> / 
-                                <a href="tel:7001546954" class="hover:text-brand-600">7001546954</a> / 
-                                <a href="tel:9733648132" class="hover:text-brand-600">9733648132</a>
+                                <a href="tel:9733636847" class="hover:text-primary-700 font-bold">+91 9733636847</a> / 
+                                <a href="tel:7001546954" class="hover:text-primary-700 font-bold">+91 7001546954</a> / 
+                                <a href="tel:9733648132" class="hover:text-primary-700 font-bold">+91 9733648132</a>
                             </p>
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200 flex items-start gap-4">
-                        <div class="w-12 h-12 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center shrink-0 text-xl">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex items-start gap-4">
+                        <div class="w-12 h-12 bg-primary-100 text-primary-700 rounded-xl flex items-center justify-center shrink-0 text-xl font-bold">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-slate-900 text-base">Email Address</h4>
+                            <h4 class="font-bold text-slate-900 text-base font-heading">Email Address</h4>
                             <p class="text-xs text-slate-600 mt-1">
-                                <a href="mailto:holyschool007@gmail.com" class="hover:text-brand-600">holyschool007@gmail.com</a>
+                                <a href="mailto:holyschool007@gmail.com" class="hover:text-primary-700 font-bold">holyschool007@gmail.com</a>
                             </p>
                         </div>
                     </div>
 
-                    <div class="bg-brand-800 text-white p-6 rounded-2xl shadow-md">
-                        <h4 class="font-bold text-amber-400 text-sm uppercase tracking-wider mb-2"><i class="fa-solid fa-clock mr-2"></i> School & Office Hours</h4>
+                    <div class="bg-primary-900 text-white p-6 rounded-2xl border border-primary-800 shadow-md">
+                        <h4 class="font-bold text-amber-400 text-xs uppercase tracking-wider mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-clock"></i> School Office Timings
+                        </h4>
                         <p class="text-xs text-slate-200">Monday – Saturday: <strong>8:30 AM – 3:00 PM</strong></p>
-                        <p class="text-xs text-slate-400 mt-1">Closed on Sundays and Gazetted Holidays.</p>
+                        <p class="text-[11px] text-slate-400 mt-1">Closed on Sundays and State Holidays.</p>
                     </div>
                 </div>
 
                 <!-- Interactive Quick Inquiry Form -->
-                <div class="lg:col-span-7 bg-white p-8 rounded-2xl shadow-md border border-slate-200">
-                    <h3 class="text-xl font-bold font-serif text-slate-900 mb-2">Send Us an Inquiry</h3>
-                    <p class="text-xs text-slate-500 mb-6">Fill out the quick form below and our admissions team will respond shortly.</p>
+                <div class="lg:col-span-7 bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-md">
+                    <h3 class="text-2xl font-bold font-heading text-slate-900 mb-1">Send Us An Inquiry</h3>
+                    <p class="text-xs text-slate-500 mb-6">Fill out the quick form below and our admissions desk will call you back shortly.</p>
+                    
                     <form onsubmit="handleInquirySubmit(event)" class="space-y-4">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-semibold text-slate-700 mb-1">Parent's Name *</label>
-                                <input type="text" required placeholder="Enter your full name" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Parent / Guardian Name *</label>
+                                <input type="text" required placeholder="Enter full name" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-primary-500 focus:outline-none bg-white">
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold text-slate-700 mb-1">Phone Number *</label>
-                                <input type="tel" required placeholder="Enter mobile number" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
+                                <input type="tel" required placeholder="Enter 10-digit phone number" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-primary-500 focus:outline-none bg-white">
                             </div>
                         </div>
+
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-semibold text-slate-700 mb-1">Seeking Grade *</label>
-                                <select required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-brand-500 focus:outline-none bg-white">
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Seeking Grade for Child *</label>
+                                <select required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-primary-500 focus:outline-none bg-white">
                                     <option value="">Select Grade</option>
                                     <option value="Nursery">Nursery</option>
                                     <option value="LKG">LKG</option>
@@ -562,80 +898,298 @@
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold text-slate-700 mb-1">Email Address</label>
-                                <input type="email" placeholder="Optional email" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Email Address</label>
+                                <input type="email" placeholder="Optional email" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-primary-500 focus:outline-none bg-white">
                             </div>
                         </div>
+
                         <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1">Your Message / Questions</label>
-                            <textarea rows="3" placeholder="Ask about fees, transport, or admission procedures..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-brand-500 focus:outline-none"></textarea>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Your Message / Question</label>
+                            <textarea rows="3" placeholder="Inquire about admission fees, bus routes, document checklist..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-primary-500 focus:outline-none bg-white"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-bold py-3 rounded-xl transition-colors shadow">
-                            Submit Inquiry
+
+                        <button type="submit" class="w-full bg-primary-700 hover:bg-primary-800 text-white font-bold py-3.5 rounded-xl transition-all shadow-md text-xs uppercase tracking-wider">
+                            Submit Inquiry Now
                         </button>
                     </form>
-                    <div id="inquiry-alert" class="hidden mt-4 p-3 bg-emerald-100 text-emerald-800 rounded-xl text-xs text-center font-medium">
-                        ✓ Message submitted! Our team will call you shortly.
+
+                    <div id="inquiry-alert" class="hidden mt-4 p-3 bg-emerald-100 border border-emerald-300 text-emerald-800 rounded-xl text-xs text-center font-bold">
+                        ✓ Inquiry Submitted Successfully! Our admissions team will reach out to you shortly.
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-slate-900 text-slate-400 text-xs py-12 border-t border-slate-800">
+    <footer class="bg-primary-950 text-slate-400 text-xs py-12 border-t border-primary-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div class="md:col-span-2 space-y-3">
                     <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 bg-brand-600 text-white rounded-lg flex items-center justify-center font-serif font-bold text-base">H</div>
-                        <span class="text-lg font-bold text-white font-serif">HOLY INTERNATIONAL SCHOOL</span>
+                        <div class="w-9 h-9 bg-gradient-to-br from-primary-600 to-primary-800 text-amber-400 rounded-xl flex items-center justify-center font-serif font-black text-lg border border-primary-500/30">H</div>
+                        <span class="text-lg font-extrabold text-white font-heading tracking-tight">HOLY INTERNATIONAL SCHOOL</span>
                     </div>
                     <p class="text-slate-400 max-w-sm leading-relaxed">
-                        A modern educational institution in Kashinagar, Raidighi, South 24 Parganas dedicated to shaping holistic future leaders.
+                        A premier English medium institution in Kashinagar, Raidighi, South 24 Parganas dedicated to shaping holistic future leaders.
                     </p>
                 </div>
                 <div>
                     <h5 class="font-bold text-white uppercase tracking-wider mb-3">Quick Links</h5>
-                    <ul class="space-y-2">
+                    <ul class="space-y-2 text-slate-300">
                         <li><a href="#about" class="hover:text-white transition-colors">About School</a></li>
                         <li><a href="#academics" class="hover:text-white transition-colors">Academics (Nursery - 6th)</a></li>
                         <li><a href="#facilities" class="hover:text-white transition-colors">Campus Facilities</a></li>
-                        <li><a href="admissions.html" class="hover:text-white transition-colors text-amber-400">Admissions Form 2025-26</a></li>
+                        <li><a href="#principal" class="hover:text-white transition-colors">Principal's Desk</a></li>
+                        <li><a href="admissions.html" class="hover:text-white transition-colors text-amber-400 font-bold">Admissions Form 2025-26</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h5 class="font-bold text-white uppercase tracking-wider mb-3">Contact</h5>
-                    <p class="text-slate-400">Vill. - Sankar Purkait Chak, P.O. - Kashinagar, P.S. - Raidighi</p>
-                    <p class="mt-2 text-slate-300">Phone: 9733636847 / 7001546954</p>
+                    <h5 class="font-bold text-white uppercase tracking-wider mb-3">Contact Us</h5>
+                    <p class="text-slate-300">Vill. - Sankar Purkait Chak, P.O. - Kashinagar, Raidighi</p>
+                    <p class="mt-2 text-slate-300">Phone: +91 9733636847 / +91 7001546954</p>
                     <p class="mt-1 text-slate-300">Email: holyschool007@gmail.com</p>
                 </div>
             </div>
-            <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-500">
-                <p>© 2025-2026 Holy International School. All Rights Reserved.</p>
-                <p>Empowering Minds, Shaping Global Leaders.</p>
+            <div class="pt-8 border-t border-primary-900 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-500">
+                <p>© 2025–2026 Holy International School. All Rights Reserved.</p>
+                <p class="text-amber-400/80 font-medium">Empowering Minds, Shaping Global Leaders.</p>
             </div>
         </div>
     </footer>
 
+    <div id="theme-drawer" class="fixed inset-0 z-50 hidden overflow-hidden">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="toggleThemeDrawer()"></div>
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white p-6 shadow-2xl flex flex-col justify-between overflow-y-auto">
+                <div class="space-y-6">
+                    <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 font-heading">Customize Website Theme</h3>
+                            <p class="text-xs text-slate-500">Choose custom colors and fonts dynamically.</p>
+                        </div>
+                        <button onclick="toggleThemeDrawer()" class="p-2 text-slate-400 hover:text-slate-600 rounded-lg">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Color Palettes Selector -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-3">Color Scheme</label>
+                        <div class="grid grid-cols-1 gap-2.5">
+                            <button onclick="applyColorTheme('royal')" class="flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-blue-600 text-left bg-slate-50">
+                                <span class="text-xs font-bold text-slate-800">Royal Gold & Navy (Default)</span>
+                                <div class="flex gap-1">
+                                    <span class="w-4 h-4 rounded-full bg-blue-800"></span>
+                                    <span class="w-4 h-4 rounded-full bg-amber-500"></span>
+                                </div>
+                            </button>
+                            <button onclick="applyColorTheme('emerald')" class="flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-emerald-600 text-left bg-slate-50">
+                                <span class="text-xs font-bold text-slate-800">Emerald Green</span>
+                                <div class="flex gap-1">
+                                    <span class="w-4 h-4 rounded-full bg-emerald-700"></span>
+                                    <span class="w-4 h-4 rounded-full bg-amber-500"></span>
+                                </div>
+                            </button>
+                            <button onclick="applyColorTheme('crimson')" class="flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-rose-600 text-left bg-slate-50">
+                                <span class="text-xs font-bold text-slate-800">Sunset Crimson</span>
+                                <div class="flex gap-1">
+                                    <span class="w-4 h-4 rounded-full bg-rose-700"></span>
+                                    <span class="w-4 h-4 rounded-full bg-amber-500"></span>
+                                </div>
+                            </button>
+                            <button onclick="applyColorTheme('violet')" class="flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-purple-600 text-left bg-slate-50">
+                                <span class="text-xs font-bold text-slate-800">Cyber Violet</span>
+                                <div class="flex gap-1">
+                                    <span class="w-4 h-4 rounded-full bg-purple-700"></span>
+                                    <span class="w-4 h-4 rounded-full bg-rose-500"></span>
+                                </div>
+                            </button>
+                            <button onclick="applyColorTheme('slate')" class="flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:border-slate-600 text-left bg-slate-50">
+                                <span class="text-xs font-bold text-slate-800">Deep Slate Blue</span>
+                                <div class="flex gap-1">
+                                    <span class="w-4 h-4 rounded-full bg-slate-800"></span>
+                                    <span class="w-4 h-4 rounded-full bg-sky-500"></span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Typography Selector -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-3">Font Pairings</label>
+                        <div class="grid grid-cols-1 gap-2.5">
+                            <button onclick="applyFontTheme('jakarta')" class="p-3 rounded-xl border border-slate-200 text-left bg-slate-50 hover:border-slate-400">
+                                <div class="text-xs font-bold text-slate-900" style="font-family: 'Plus Jakarta Sans'">Plus Jakarta Sans</div>
+                                <div class="text-[11px] text-slate-500">Modern, ultra-clean UI typography</div>
+                            </button>
+                            <button onclick="applyFontTheme('poppins')" class="p-3 rounded-xl border border-slate-200 text-left bg-slate-50 hover:border-slate-400">
+                                <div class="text-xs font-bold text-slate-900" style="font-family: 'Poppins'">Poppins + Inter</div>
+                                <div class="text-[11px] text-slate-500">Geometric, bold headings</div>
+                            </button>
+                            <button onclick="applyFontTheme('outfit')" class="p-3 rounded-xl border border-slate-200 text-left bg-slate-50 hover:border-slate-400">
+                                <div class="text-xs font-bold text-slate-900" style="font-family: 'Outfit'">Outfit Sans</div>
+                                <div class="text-[11px] text-slate-500">Contemporary & friendly rounded style</div>
+                            </button>
+                            <button onclick="applyFontTheme('serif')" class="p-3 rounded-xl border border-slate-200 text-left bg-slate-50 hover:border-slate-400">
+                                <div class="text-xs font-bold text-slate-900" style="font-family: 'Playfair Display'">Playfair Display (Serif)</div>
+                                <div class="text-[11px] text-slate-500">Classic, prestigious academic aesthetic</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 border-t border-slate-200">
+                    <button onclick="toggleThemeDrawer()" class="w-full bg-slate-900 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider">
+                        Done & Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="enquiry-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="min-h-screen px-4 text-center flex items-center justify-center">
+            <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="closeModal('enquiry-modal')"></div>
+            <div class="inline-block w-full max-w-md p-6 my-8 text-left bg-white rounded-3xl shadow-2xl transform transition-all relative z-10">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold font-heading text-slate-900">Admission Inquiry 2025–2026</h3>
+                    <button onclick="closeModal('enquiry-modal')" class="text-slate-400 hover:text-slate-600">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+                <form onsubmit="handleInquirySubmit(event)" class="space-y-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Parent's Name *</label>
+                        <input type="text" required placeholder="Full Name" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-primary-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Mobile Phone Number *</label>
+                        <input type="tel" required placeholder="Phone Number" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-primary-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Target Class *</label>
+                        <select required class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-primary-500 focus:outline-none bg-white">
+                            <option value="">Select Grade</option>
+                            <option value="Nursery">Nursery</option>
+                            <option value="LKG">LKG</option>
+                            <option value="UKG">UKG</option>
+                            <option value="Class 1-6">Classes 1st to 6th</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-primary-700 hover:bg-primary-800 text-white font-bold py-2.5 rounded-xl transition-all shadow text-xs mt-2">
+                        Submit Quick Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="tour-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="min-h-screen px-4 text-center flex items-center justify-center">
+            <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="closeModal('tour-modal')"></div>
+            <div class="inline-block w-full max-w-md p-6 my-8 text-left bg-white rounded-3xl shadow-2xl transform transition-all relative z-10">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold font-heading text-slate-900">Schedule Campus Visit</h3>
+                    <button onclick="closeModal('tour-modal')" class="text-slate-400 hover:text-slate-600">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+                <form onsubmit="handleTourSubmit(event)" class="space-y-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Visitor Name *</label>
+                        <input type="text" required placeholder="Your Name" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-primary-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
+                        <input type="tel" required placeholder="Mobile Number" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-primary-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Preferred Visit Date *</label>
+                        <input type="date" required class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-primary-500 focus:outline-none">
+                    </div>
+                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-2.5 rounded-xl transition-all shadow text-xs mt-2">
+                        Confirm Tour Slot
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Toggle Mobile Navigation Drawer
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         }
 
-        function setTheme(themeName) {
-            document.body.setAttribute('data-theme', themeName);
+        // Toggle Theme Drawer
+        function toggleThemeDrawer() {
+            const drawer = document.getElementById('theme-drawer');
+            drawer.classList.toggle('hidden');
         }
 
+        // Color Theme Handler
+        function applyColorTheme(colorName) {
+            document.body.setAttribute('data-theme-color', colorName);
+            localStorage.setItem('his_theme_color', colorName);
+        }
+
+        // Font Theme Handler
+        function applyFontTheme(fontName) {
+            document.body.setAttribute('data-theme-font', fontName);
+            localStorage.setItem('his_theme_font', fontName);
+        }
+
+        // Modal Controls
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        // Accordion Controls
+        function toggleFaq(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById(id + '-icon');
+            content.classList.toggle('hidden');
+            if (icon) {
+                icon.classList.toggle('rotate-180');
+            }
+        }
+
+        // Form Submission Handlers
         function handleInquirySubmit(event) {
             event.preventDefault();
             const alertBox = document.getElementById('inquiry-alert');
-            alertBox.classList.remove('hidden');
+            if (alertBox) alertBox.classList.remove('hidden');
+            closeModal('enquiry-modal');
             event.target.reset();
             setTimeout(() => {
-                alertBox.classList.add('hidden');
+                if (alertBox) alertBox.classList.add('hidden');
             }, 5000);
         }
+
+        function handleTourSubmit(event) {
+            event.preventDefault();
+            alert('Campus Visit Tour Request Confirmed! Our school office will call you to confirm your timing slot.');
+            closeModal('tour-modal');
+            event.target.reset();
+        }
+
+        // Restore Saved Theme Preferences On Page Load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedColor = localStorage.getItem('his_theme_color');
+            const savedFont = localStorage.getItem('his_theme_font');
+
+            if (savedColor) {
+                applyColorTheme(savedColor);
+            }
+            if (savedFont) {
+                applyFontTheme(savedFont);
+            }
+        });
     </script>
 </body>
 </html>
