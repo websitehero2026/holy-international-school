@@ -164,6 +164,18 @@
     }
 
     /* =========================================================
+       PRESTIGE / PREMIUM THEME
+    ========================================================== */
+
+    html[data-theme="prestige"] {
+      --primary: #0b1f33; --primary-2: #173b5d; --accent: #c9a227; --accent-2: #f3d77a;
+      --bg: #f7f3e8; --surface: rgba(255,255,255,.76); --surface-solid: #fffdf8;
+      --surface-soft: rgba(255,255,255,.52); --text: #1c2833; --text-soft: #6b7480;
+      --heading: #0b1f33; --border: rgba(11,31,51,.12);
+      --shadow: 0 28px 80px rgba(11,31,51,.15); --shadow-small: 0 12px 34px rgba(11,31,51,.10);
+    }
+
+    /* =========================================================
        FONTS
     ========================================================== */
 
@@ -3257,6 +3269,40 @@
     }
 
     /* =========================================================
+       PREMIUM VISUAL REFINEMENTS
+    ========================================================== */
+
+    body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index:-2; opacity:.32;
+      background-image:linear-gradient(rgba(255,255,255,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.18) 1px,transparent 1px);
+      background-size:72px 72px; mask-image:linear-gradient(to bottom,black,transparent 78%); }
+    .section-heading h2 { text-wrap:balance; }
+    .section-heading.center::after { content:""; display:block; width:54px; height:3px; margin:19px auto 0; border-radius:999px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); }
+
+    /* =========================================================
+       FOUNDERS
+    ========================================================== */
+
+    .founders-section { overflow:hidden; background:radial-gradient(circle at 12% 18%,rgba(201,162,39,.10),transparent 25%),radial-gradient(circle at 88% 82%,rgba(23,79,114,.09),transparent 28%); }
+    .founders-shell { position:relative; padding:42px; border-radius:38px; border:1px solid var(--border); background:linear-gradient(145deg,rgba(255,255,255,.76),rgba(255,255,255,.42)); box-shadow:var(--shadow); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); overflow:hidden; }
+    html[data-theme="midnight"] .founders-shell { background:linear-gradient(145deg,rgba(20,31,48,.82),rgba(17,29,44,.58)); }
+    .founders-shell::before { content:""; position:absolute; width:280px; height:280px; border-radius:50%; right:-130px; top:-150px; background:rgba(231,169,47,.10); filter:blur(8px); pointer-events:none; }
+    .founders-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; position:relative; z-index:1; }
+    .founder-card { position:relative; overflow:hidden; min-height:425px; border-radius:28px; border:1px solid var(--border); background:var(--surface-solid); box-shadow:0 16px 40px rgba(16,35,51,.09); transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s ease,border-color .35s ease; }
+    .founder-card:hover { transform:translateY(-10px); box-shadow:0 26px 58px rgba(16,35,51,.16); border-color:rgba(201,162,39,.28); }
+    .founder-photo { height:310px; position:relative; overflow:hidden; background:linear-gradient(135deg,var(--primary),var(--primary-2)); }
+    .founder-photo::after { content:""; position:absolute; inset:45% 0 0; background:linear-gradient(transparent,rgba(5,15,25,.50)); pointer-events:none; }
+    .founder-photo img { width:100%; height:100%; object-fit:cover; object-position:center; transition:transform .8s cubic-bezier(.2,.8,.2,1); }
+    .founder-card:hover .founder-photo img { transform:scale(1.055); }
+    .founder-number { position:absolute; top:14px; left:14px; z-index:2; width:38px; height:38px; display:grid; place-items:center; border-radius:13px; color:#fff; background:rgba(11,31,51,.58); border:1px solid rgba(255,255,255,.24); backdrop-filter:blur(12px); font-size:.67rem; font-weight:900; }
+    .founder-info { padding:20px 20px 22px; }
+    .founder-role { display:inline-flex; align-items:center; gap:7px; color:var(--accent); font-size:.63rem; font-weight:900; letter-spacing:.12em; text-transform:uppercase; margin-bottom:7px; }
+    .founder-info h3 { color:var(--heading); font-size:1.15rem; line-height:1.1; letter-spacing:-.025em; margin-bottom:7px; }
+    .founder-info p { color:var(--text-soft); font-size:.69rem; line-height:1.55; }
+    .founder-accent { position:absolute; right:19px; bottom:23px; width:31px; height:3px; border-radius:99px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); }
+
+    @media (max-width:1050px) { .founders-grid { grid-template-columns:repeat(2,1fr); } }
+
+    /* =========================================================
        RESPONSIVE
     ========================================================== */
 
@@ -3477,12 +3523,34 @@
 
     @media (max-width:520px) {
 
-      section {
-        padding: 78px 0;
+      /* Keep the school identity visible in the mobile header. */
+      .brand {
+        gap: 7px;
+        min-width: 0;
+        flex: 1 1 auto;
       }
 
       .brand-text {
+        display: block;
+        min-width: 0;
+        flex: 1 1 auto;
+        overflow: visible;
+      }
+
+      .brand-text strong {
+        display: block;
+        font-size: .67rem;
+        line-height: 1.08;
+        white-space: normal;
+        max-width: 132px;
+      }
+
+      .brand-text span {
         display: none;
+      }
+
+      section {
+        padding: 78px 0;
       }
 
       .nav-actions {
@@ -3661,7 +3729,69 @@
 
     }
 
-  </style>
+  
+
+    /* =========================================================
+       FIREBASE NOTICE STATES
+    ========================================================== */
+
+    .notice-loading,
+    .notice-empty {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 92px;
+      padding: 20px;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,.35);
+    }
+
+    .notice-loading {
+      color: var(--text-soft);
+    }
+
+    .notice-empty {
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      color: var(--text-soft);
+    }
+
+    .notice-empty i {
+      color: var(--accent);
+      font-size: 1.25rem;
+    }
+
+    .notice-empty strong {
+      color: var(--heading);
+    }
+
+    .notice-empty span {
+      font-size: .88rem;
+    }
+
+    .firebase-live-status,
+    .notice-refresh-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 14px;
+      color: var(--text-soft);
+      font-size: .76rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .firebase-live-status i {
+      color: #16a34a;
+      font-size: .48rem;
+    }
+
+    .notice-refresh-link:hover {
+      color: var(--primary);
+    }
+</style>
 
   <!-- Prevent theme flash -->
 
@@ -3740,7 +3870,7 @@
     </strong>
 
     <span>
-      Session 2026–2027 • Nursery to Class VI
+      Session 2027–2028 • Nursery to Class VI
     </span>
 
     <a href="#admissions">
@@ -3798,6 +3928,10 @@
 
         <a href="#principal">
           Principal
+        </a>
+
+        <a href="#founders">
+          Founders
         </a>
 
         <a href="#activities">
@@ -3959,7 +4093,7 @@
           <div class="hero-badge">
 
             <strong>
-              2026–27
+              2027–28
             </strong>
 
             New Session
@@ -4338,6 +4472,41 @@
     </section>
 
     <!-- =======================================================
+         FOUNDERS
+    ======================================================== -->
+
+    <section class="founders-section" id="founders">
+      <div class="container">
+        <div class="section-heading center reveal">
+          <div class="section-kicker">Our Founders</div>
+          <h2>The people behind the vision.</h2>
+          <p>The founders whose vision, dedication and commitment helped shape the foundation of Holy International School.</p>
+        </div>
+
+        <div class="founders-shell reveal">
+          <div class="founders-grid">
+            <article class="founder-card">
+              <div class="founder-photo"><span class="founder-number">01</span><img src="https://raw.githubusercontent.com/websitehero2026/holy-international-school/main/files/kansa.jpeg" alt="Kansa, Founder of Holy International School" loading="lazy"></div>
+              <div class="founder-info"><div class="founder-role"><i class="fa-solid fa-star"></i> Founder</div><h3>Kansa</h3><p>A founding presence in the school's journey and vision.</p></div><span class="founder-accent"></span>
+            </article>
+            <article class="founder-card">
+              <div class="founder-photo"><span class="founder-number">02</span><img src="https://raw.githubusercontent.com/websitehero2026/holy-international-school/main/files/ajoy.jpeg" alt="Ajoy, Founder of Holy International School" loading="lazy"></div>
+              <div class="founder-info"><div class="founder-role"><i class="fa-solid fa-star"></i> Founder</div><h3>Ajoy</h3><p>Part of the founding team that helped build the school community.</p></div><span class="founder-accent"></span>
+            </article>
+            <article class="founder-card">
+              <div class="founder-photo"><span class="founder-number">03</span><img src="https://raw.githubusercontent.com/websitehero2026/holy-international-school/main/files/mahadeb.jpeg" alt="Mahadeb, Founder of Holy International School" loading="lazy"></div>
+              <div class="founder-info"><div class="founder-role"><i class="fa-solid fa-star"></i> Founder</div><h3>Mahadeb</h3><p>A founding contributor to the school's long-term vision.</p></div><span class="founder-accent"></span>
+            </article>
+            <article class="founder-card">
+              <div class="founder-photo"><span class="founder-number">04</span><img src="https://raw.githubusercontent.com/websitehero2026/holy-international-school/main/files/anupam.jpeg" alt="Anupam, Founder of Holy International School" loading="lazy"></div>
+              <div class="founder-info"><div class="founder-role"><i class="fa-solid fa-star"></i> Founder</div><h3>Anupam</h3><p>A founding presence helping carry the school's ideals forward.</p></div><span class="founder-accent"></span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
          ACTIVITIES
     ======================================================== -->
 
@@ -4398,7 +4567,7 @@
             <div class="activity-image">
 
               <img
-                src="https://raw.githubusercontent.com/websitehero2026/holy-international-school/main/files/song.jpeg"
+                src="https://raw.githubusercontent.com/websitehero2026/holy-international-school/main/files/music.jpeg"
                 alt="Music activity"
               >
 
@@ -4607,41 +4776,10 @@
 
             <div id="firebaseNotices">
 
-              <!--
-                Firebase notices will be inserted here.
-
-                Until Firebase configuration is supplied,
-                the fallback link below remains available.
-              -->
-
-              <a
-                href="notice.html"
-                class="notice-link"
-              >
-
-                <div class="notice-link-left">
-
-                  <div class="notice-date">
-                    NEW
-                  </div>
-
-                  <div>
-
-                    <strong>
-                      View the latest school notices
-                    </strong>
-
-                    <span>
-                      Visit the complete Notice Board
-                    </span>
-
-                  </div>
-
-                </div>
-
-                <i class="fa-solid fa-chevron-right"></i>
-
-              </a>
+              <div class="notice-loading">
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                <span>Loading latest notices…</span>
+              </div>
 
             </div>
 
@@ -4961,12 +5099,10 @@
 
                     <a href="tel:9733636847">
                       9733636847
-                    </a>
-
+                    </a>,
                     <a href="tel:7001546954">
                       7001546954
-                    </a>
-
+                    </a>,
                     <a href="tel:9733648132">
                       9733648132
                     </a>
@@ -5127,6 +5263,7 @@
 
               <a
                 href="https://maps.app.goo.gl/6MhHE9ysxtHyv6oY7"
+                title="Open Holy International School location in Google Maps"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn"
@@ -5164,7 +5301,7 @@
           <div class="cta-content">
 
             <div class="section-kicker">
-              Admissions 2026–2027
+              Admissions 2027–2028
             </div>
 
             <h2>
@@ -5244,6 +5381,10 @@
           Calendar
         </a>
 
+        <a href="results.html">
+          Results
+        </a>
+
       </nav>
 
       <div class="copyright">
@@ -5301,6 +5442,11 @@
       </label>
 
       <div class="theme-grid">
+
+        <button class="theme-option" data-theme-option="prestige">
+          <div class="theme-preview" style="background:linear-gradient(135deg,#0b1f33,#c9a227);"></div>
+          <span>Prestige</span>
+        </button>
 
         <button
           class="theme-option"
@@ -5614,6 +5760,20 @@
 
   </div>
 
+    @media (max-width:680px) {
+      .founders-shell { padding:18px; border-radius:28px; }
+      .founders-grid { grid-template-columns:1fr; }
+      .founder-card { min-height:0; }
+      .founder-photo { height:330px; }
+    }
+
+  <!-- =========================================================
+       FIREBASE SDK
+  ========================================================== -->
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
   <!-- =========================================================
        JAVASCRIPT
   ========================================================== -->
@@ -5627,24 +5787,14 @@
     const IMG_BASE =
       "https://raw.githubusercontent.com/websitehero2026/holy-international-school/main/files/";
 
-    /*
-      Firebase configuration will be added here later.
-
-      Example:
-
-      const FIREBASE_CONFIG = {
-        apiKey: "...",
-        authDomain: "...",
-        projectId: "...",
-        storageBucket: "...",
-        messagingSenderId: "...",
-        appId: "..."
-      };
-
-      You can send the Firebase link/config when ready.
-    */
-
-    const FIREBASE_CONFIG = null;
+    const FIREBASE_CONFIG = {
+      apiKey: "AIzaSyDBBAXOsMGqpeL1n2-nRbslmqkrxQVEpRw",
+      authDomain: "his-website-f8fab.firebaseapp.com",
+      projectId: "his-website-f8fab",
+      storageBucket: "his-website-f8fab.firebasestorage.app",
+      messagingSenderId: "392535385121",
+      appId: "1:392535385121:web:f7fd855595322d783c2f60"
+    };
 
     /* =========================================================
        PAGE LOADER
@@ -6288,7 +6438,7 @@
 
     /* =========================================================
        PROGRESSIVE GALLERY
-       5 → 10 → 15 → 20
+       5 → 10 → 15 → 20 → 25 → 30
     ========================================================== */
 
     const galleryGrid =
@@ -6303,7 +6453,7 @@
 
     const galleryFiles =
       Array.from(
-        { length: 20 },
+        { length: 30 },
         (_, index) =>
           `school${index + 1}.jpeg`
       );
@@ -6597,41 +6747,233 @@
        FIREBASE NOTICE BOARD
     ========================================================== */
 
-    /*
-      IMPORTANT:
+    let firebaseDb = null;
 
-      Firebase is intentionally NOT initialized yet because
-      the Firebase project/configuration has not been supplied.
+    function escapeHtml(value) {
 
-      When you send the Firebase link/config, this section can
-      be connected to your Firestore collection.
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
-      Recommended Firestore structure:
+    }
 
-      notices
-        └── document
-              title: "Annual Examination"
-              description: "..."
-              date: Timestamp
-              active: true
-              link: "notice.html"
+    function formatNoticeDate(value) {
 
-      The homepage can then automatically display the latest
-      active notices.
-    */
+      if (!value) {
+        return "NOTICE";
+      }
 
-    async function loadFirebaseNotices() {
+      let date = null;
 
-      if (!FIREBASE_CONFIG) {
+      if (value && typeof value.toDate === "function") {
+        date = value.toDate();
+      } else if (value instanceof Date) {
+        date = value;
+      } else if (typeof value === "number") {
+        date = new Date(value);
+      } else if (typeof value === "string") {
+        date = new Date(value);
+      } else if (value && typeof value.seconds === "number") {
+        date = new Date(value.seconds * 1000);
+      }
 
+      if (!date || Number.isNaN(date.getTime())) {
+        return "NOTICE";
+      }
+
+      return date.toLocaleDateString("en-IN", {
+        day: "2-digit",
+        month: "short"
+      }).toUpperCase();
+
+    }
+
+    function noticeTimeValue(value) {
+
+      if (!value) return 0;
+      if (value && typeof value.toMillis === "function") return value.toMillis();
+      if (value && typeof value.toDate === "function") return value.toDate().getTime();
+      if (value && typeof value.seconds === "number") return value.seconds * 1000;
+
+      const parsed = new Date(value).getTime();
+      return Number.isNaN(parsed) ? 0 : parsed;
+
+    }
+
+    function renderFirebaseNotices(notices) {
+
+      const container = document.getElementById("firebaseNotices");
+      const status = document.getElementById("firebaseNoticeStatus");
+
+      if (!container) return;
+
+      if (!notices.length) {
+
+        container.innerHTML = `
+          <div class="notice-empty">
+            <i class="fa-regular fa-bell-slash"></i>
+            <strong>No new notices right now.</strong>
+            <span>Please check back soon for school updates.</span>
+          </div>
+        `;
+
+        if (status) status.textContent = "";
         return;
 
       }
 
-      /*
-        Firebase integration will be inserted here after
-        receiving your Firebase configuration.
-      */
+      container.innerHTML = notices.map(notice => {
+
+        const title = escapeHtml(
+          notice.title ||
+          notice.heading ||
+          notice.name ||
+          "School Notice"
+        );
+
+        const description = escapeHtml(
+          notice.description ||
+          notice.message ||
+          notice.content ||
+          "Important school information."
+        );
+
+        const date = formatNoticeDate(
+          notice.date ||
+          notice.createdAt ||
+          notice.timestamp ||
+          notice.publishedAt
+        );
+
+        const rawLink =
+          typeof notice.link === "string"
+            ? notice.link.trim()
+            : "";
+
+        const safeLink =
+          /^(https?:\/\/|\/|#|notice\.html(?:[?#].*)?$)/i.test(rawLink)
+            ? rawLink
+            : "";
+
+        return `
+          <a
+            href="${safeLink || "notice.html"}"
+            class="notice-link"
+            ${safeLink && /^https?:\/\//i.test(safeLink) ? 'target="_blank" rel="noopener noreferrer"' : ""}
+          >
+            <div class="notice-link-left">
+              <div class="notice-date">${date}</div>
+              <div>
+                <strong>${title}</strong>
+                <span>${description}</span>
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+        `;
+
+      }).join("");
+
+      if (status) {
+        status.innerHTML = `
+          <span class="firebase-live-status">
+            <i class="fa-solid fa-circle"></i>
+            Live from school notice system
+          </span>
+        `;
+      }
+
+    }
+
+    async function loadFirebaseNotices() {
+
+      const container = document.getElementById("firebaseNotices");
+      const status = document.getElementById("firebaseNoticeStatus");
+
+      if (!container) return;
+
+      container.innerHTML = `
+        <div class="notice-loading">
+          <i class="fa-solid fa-spinner fa-spin"></i>
+          <span>Loading latest notices…</span>
+        </div>
+      `;
+
+      try {
+
+        if (!firebase.apps.length) {
+          firebase.initializeApp(FIREBASE_CONFIG);
+        }
+
+        firebaseDb = firebase.firestore();
+
+        /*
+          The Admin panel should write notices into the Firestore
+          collection named "notices". Supported fields include:
+
+          title / heading / name
+          description / message / content
+          date / createdAt / timestamp / publishedAt
+          active (true/false)
+          link (optional)
+
+          We intentionally fetch a limited set and sort/filter in
+          the browser so the homepage does not require a composite
+          Firestore index.
+        */
+
+        const snapshot = await firebaseDb
+          .collection("notices")
+          .limit(50)
+          .get();
+
+        const notices = snapshot.docs
+          .map(doc => ({
+            id: doc.id,
+            ...doc.data()
+          }))
+          .filter(notice => {
+            if (notice.active === undefined) return true;
+            return notice.active === true || notice.active === "true" || notice.active === 1;
+          })
+          .sort((a, b) => {
+            const bTime = noticeTimeValue(
+              b.date || b.createdAt || b.timestamp || b.publishedAt
+            );
+            const aTime = noticeTimeValue(
+              a.date || a.createdAt || a.timestamp || a.publishedAt
+            );
+            return bTime - aTime;
+          })
+          .slice(0, 8);
+
+        renderFirebaseNotices(notices);
+
+      } catch (error) {
+
+        console.error("Firebase Notice Board error:", error);
+
+        container.innerHTML = `
+          <div class="notice-empty notice-error">
+            <i class="fa-solid fa-cloud-arrow-down"></i>
+            <strong>Notice Board temporarily unavailable.</strong>
+            <span>Please try again shortly or open the complete Notice Board.</span>
+          </div>
+        `;
+
+        if (status) {
+          status.innerHTML = `
+            <a href="notice.html" class="notice-refresh-link">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              Open Notice Board
+            </a>
+          `;
+        }
+
+      }
 
     }
 
@@ -6640,4 +6982,4 @@
   </script>
 
 </body>
-    </html>
+  </html>
